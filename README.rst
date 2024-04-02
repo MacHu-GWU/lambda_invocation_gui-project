@@ -15,6 +15,7 @@ Now, let's walk through the final solution.
 This is a sample GUI on my phone:
 
 .. image:: ./gui.png
+   :height: 800
 
 Links:
 
