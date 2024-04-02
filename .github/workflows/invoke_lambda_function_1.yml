@@ -11,20 +11,20 @@ on:
         default: p1-1
         type: choice # this type will create a dropdown menu
         options:
-          - p1-1
-          - p1-2
-          - p1-3
+          - p1 v1
+          - p1 v2
+          - p1 v3
       param2:
         description: parameter 2
         required: true
         default: p2-1
         type: choice
         options:
-          - p2-1
-          - p2-2
-          - p2-3
+          - p2 v1
+          - p2 v2
+          - p2 v3
 jobs:
-  with_pip_cache:
+  invoke_lambda:
     runs-on: ubuntu-latest
     env: # job level env var
       PARAM1: ${{ github.event.inputs.param1 }}
