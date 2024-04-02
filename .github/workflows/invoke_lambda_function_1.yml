@@ -28,6 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     env: # job level env var
       PARAM1: ${{ github.event.inputs.param1 }}
+      PARAM2: ${{ github.event.inputs.param2 }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
