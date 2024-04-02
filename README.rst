@@ -12,6 +12,10 @@ Now, let's walk through the final solution.
 4. In the ``.yml`` file, use the `workflow dispatch inputs (see example) <https://github.com/MacHu-GWU/lambda_invocation_gui-project/blob/main/.github/workflows/invoke_lambda_function_1.yml#L7>`_ to enumerate the options for the input parameters. And set them as the `environment variable (see example) <https://github.com/MacHu-GWU/lambda_invocation_gui-project/blob/main/.github/workflows/invoke_lambda_function_1.yml#L29>`_ so that the Python script can access them.
 5. In the ``.py`` file, read the environment variables and invoke the AWS Lambda Function with the `boto3 <https://boto3.amazonaws.com/v1/documentation/api/latest/index.html>`_ library.
 
+This is a sample GUI on my phone:
+
+.. image:: ./gui.png
+
 Links:
 
 - `Sample workflow <https://github.com/MacHu-GWU/lambda_invocation_gui-project/actions/workflows/invoke_lambda_function_1.yml>`_
