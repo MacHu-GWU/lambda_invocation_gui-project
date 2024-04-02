@@ -1,0 +1,42 @@
+name: invoke_lambda_function_1
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    # on.workflow_dispatch.inputs: https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs
+    inputs:
+      param1:
+        description: parameter 1
+        required: true
+        default: p1-1
+        type: choice # this type will create a dropdown menu
+        options:
+          - p1-1
+          - p1-2
+          - p1-3
+      param2:
+        description: parameter 2
+        required: true
+        default: p2-1
+        type: choice
+        options:
+          - p2-1
+          - p2-2
+          - p2-3
+jobs:
+  with_pip_cache:
+    runs-on: ubuntu-latest
+    env: # job level env var
+      PARAM1: ${{ github.event.inputs.param1 }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          # ref: https://github.com/actions/setup-python#caching-packages-dependencies
+          cache: 'pip'
+          cache-dependency-path: requirements.txt
+      - name: install python dependencies
+        run: pip install -r requirements.txt
+      - name: invoke lambda function
+        run: python invoke_lambda_function_1.py
